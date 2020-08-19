@@ -9,7 +9,7 @@ license = "MIT"
 python = "^3.7"
 django = "^3.0.0"
 django-model-utils = "^4.0.0"
-tweepy = "^3.8.0"
+tweepy = "^3.9.0"
 dynaconf = {extras = ["toml"], version = "^2.2.3"}
 gunicorn = "^20.0.4"
 whitenoise = "^5.0.1"

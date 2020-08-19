@@ -167,14 +167,6 @@ version = "2.8.5"
 
 [[package]]
 category = "main"
-description = "A Python SOCKS client module. See https://github.com/Anorov/PySocks for more information."
-name = "pysocks"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-version = "1.7.1"
-
-[[package]]
-category = "main"
 description = "Advanced Python dictionaries with dot notation access"
 name = "python-box"
 optional = false
@@ -273,17 +265,23 @@ version = "0.10.1"
 
 [[package]]
 category = "main"
-description = "Twitter library for python"
+description = "Twitter library for Python"
 name = "tweepy"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
-version = "3.8.0"
+version = "3.9.0"
 
 [package.dependencies]
-PySocks = ">=1.5.7"
-requests = ">=2.11.1"
 requests-oauthlib = ">=0.7.0"
 six = ">=1.10.0"
+
+[package.dependencies.requests]
+extras = ["socks"]
+version = ">=2.11.1"
+
+[package.extras]
+dev = ["coveralls (>=1.8.2)", "tox (>=2.4.0)"]
+test = ["mock (>=1.0.1)", "nose (>=1.3.3)", "vcrpy (>=1.10.3)"]
 
 [[package]]
 category = "main"
@@ -329,7 +327,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 version = "0.12.0"
 
 [metadata]
-content-hash = "cb238f08f26d3124a6254d89a44c25268c07435fc61153951f9059a1ccb40629"
+content-hash = "31ae818af96a25d7a118957d671cb7feac0882120302a0816d6f4aebb8f1f78c"
 python-versions = "^3.7"
 
 [metadata.files]
@@ -396,11 +394,6 @@ psycopg2 = [
     {file = "psycopg2-2.8.5-cp38-cp38-win_amd64.whl", hash = "sha256:132efc7ee46a763e68a815f4d26223d9c679953cd190f1f218187cb60decf535"},
     {file = "psycopg2-2.8.5.tar.gz", hash = "sha256:f7d46240f7a1ae1dd95aab38bd74f7428d46531f69219954266d669da60c0818"},
 ]
-pysocks = [
-    {file = "PySocks-1.7.1-py27-none-any.whl", hash = "sha256:08e69f092cc6dbe92a0fdd16eeb9b9ffbc13cadfe5ca4c7bd92ffb078b293299"},
-    {file = "PySocks-1.7.1-py3-none-any.whl", hash = "sha256:2725bd0a9925919b9b51739eea5f9e2bae91e83288108a9ad338b2e3a4435ee5"},
-    {file = "PySocks-1.7.1.tar.gz", hash = "sha256:3f8804571ebe159c380ac6de37643bb4685970655d3bba243530d6558b799aa0"},
-]
 python-box = [
     {file = "python-box-3.4.6.tar.gz", hash = "sha256:694a7555e3ff9fbbce734bbaef3aad92b8e4ed0659d3ed04d56b6a0a0eff26a9"},
     {file = "python_box-3.4.6-py2.py3-none-any.whl", hash = "sha256:a71d3dc9dbaa34c8597d3517c89a8041bd62fa875f23c0f3dad55e1958e3ce10"},
@@ -418,6 +411,7 @@ pytz = [
     {file = "pytz-2020.1.tar.gz", hash = "sha256:c35965d010ce31b23eeb663ed3cc8c906275d6be1a34393a1d73a41febf4a048"},
 ]
 requests = [
+    {file = "requests-2.23.0-py2.7.egg", hash = "sha256:5d2d0ffbb515f39417009a46c14256291061ac01ba8f875b90cad137de83beb4"},
     {file = "requests-2.23.0-py2.py3-none-any.whl", hash = "sha256:43999036bfa82904b6af1d99e4882b560e5e2c68e5c4b0aa03b655f3d7d73fee"},
     {file = "requests-2.23.0.tar.gz", hash = "sha256:b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"},
 ]
@@ -439,8 +433,8 @@ toml = [
     {file = "toml-0.10.1.tar.gz", hash = "sha256:926b612be1e5ce0634a2ca03470f95169cf16f939018233a670519cb4ac58b0f"},
 ]
 tweepy = [
-    {file = "tweepy-3.8.0-py2.py3-none-any.whl", hash = "sha256:ecc7f200c86127903017e48824efd008734814e95f3e8e9b45ce0f4120dd08db"},
-    {file = "tweepy-3.8.0.tar.gz", hash = "sha256:8abd828ba51a85a2b5bb7373715d6d3bb32d18ac624e3a4db02e4ef8ab48316b"},
+    {file = "tweepy-3.9.0-py2.py3-none-any.whl", hash = "sha256:3b3780df00eaa937bbd5427d2011e4b3bcb6a29a87bb4cbb4addfc47850e46a5"},
+    {file = "tweepy-3.9.0.tar.gz", hash = "sha256:bfd19a5c11f35f7f199c795f99d9cbf8a52eb33f0ecfb6c91ee10b601180f604"},
 ]
 tzlocal = [
     {file = "tzlocal-2.1-py2.py3-none-any.whl", hash = "sha256:e2cb6c6b5b604af38597403e9852872d7f534962ae2954c7f35efcb1ccacf4a4"},
