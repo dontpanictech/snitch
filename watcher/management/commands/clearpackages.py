@@ -18,11 +18,12 @@ class Command(BaseCommand):
     @staticmethod
     def processing():
         count = Package.objects.all().count()
-        if count <= 8000:
+        delete_count = count - 7000
+        if delete_count < 1:
             return
         packages = Package.objects.filter(
             status__in=(Package.STATUS.fail, Package.STATUS.done,),
             rank__lt=settings.MIN_RANK).values_list('pk').order_by(
-                'rank', '-modified')[0:1000]
+                'rank', '-modified')[0:delete_count]
         deleted, _ = Package.objects.filter(pk__in=packages).delete()
         print('package(s) deleted: %d' % deleted)
